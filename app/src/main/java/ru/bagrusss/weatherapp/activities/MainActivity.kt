@@ -1,7 +1,8 @@
-package ru.bagrusss.weatherapp
+package ru.bagrusss.weatherapp.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import ru.bagrusss.weatherapp.R
 
 class MainActivity : AppCompatActivity() {
 
