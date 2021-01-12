@@ -1,0 +1,124 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "ru.bagrusss.weatherapp"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+            debuggable true
+
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            debuggable false
+
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    packagingOptions {
+        exclude 'META-INF/*.kotlin_module'
+    }
+}
+
+dependencies {
+
+    // https://github.com/bagrusss/android-template-project/tree/rx_mvi
+    implementation project(":mvi_arch")
+    implementation project(":arch_common")
+
+    /////////////////
+    //
+    // ANDROIDX
+    //
+    ////////////////
+    implementation "androidx.appcompat:appcompat:$appcompat"
+    implementation "com.google.android.material:material:$material"
+    implementation "androidx.core:core-ktx:$core_ktx"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintlayout"
+
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.fragment:fragment-ktx:$fragment_version"
+
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    ////////////////
+    //
+    // NET
+    //
+    ////////////////
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.retrofit2:adapter-rxjava3:$retrofit"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit"
+
+    implementation "com.squareup.okhttp3:okhttp:$okhttp"
+
+    implementation "com.squareup.moshi:moshi:$moshi"
+    debugImplementation "com.squareup.moshi:moshi-kotlin:$moshi"
+    kaptRelease "com.squareup.moshi:moshi-kotlin-codegen:$moshi"
+
+    ////////////////
+    //
+    // RX
+    //
+    ///////////////
+    implementation "io.reactivex.rxjava3:rxjava:$rx_java"
+    implementation "io.reactivex.rxjava3:rxkotlin:$rx_kotlin"
+    implementation "io.reactivex.rxjava3:rxandroid:$rx_android"
+    implementation "com.jakewharton.rxbinding4:rxbinding:$rx_bindings"
+
+    ////////////////
+    //
+    // DI
+    //
+    ///////////////
+    implementation "com.google.dagger:dagger:$dagger_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+
+    /////////////////
+    //
+    // DEV
+    //
+    ////////////////
+    debugImplementation "com.facebook.stetho:stetho-okhttp3:$stetho"
+    implementation "com.jakewharton.timber:timber:$timber"
+
+
+    /////////////////
+    //
+    // TESTS
+    //
+    ////////////////
+    testImplementation 'junit:junit:4.13.1'
+    androidTestImplementation 'androidx.test:runner:1.3.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+
+}

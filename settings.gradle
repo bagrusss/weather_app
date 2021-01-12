@@ -1,0 +1,8 @@
+include ':app'
+rootProject.name = "Weather app"
+
+include ':mvi_arch'
+project(':mvi_arch').projectDir = new File('../android-template-project/rx_mvi_arch')
+
+include ':arch_common'
+project(':arch_common').projectDir = new File('../android-template-project/arch_common')
