@@ -39,8 +39,7 @@ abstract class NetModule {
         @Provides
         @Singleton
         @JvmStatic
-        fun provideWeatherService(retrofit: Retrofit): WeatherService =
-            retrofit.create(WeatherService::class.java)
+        fun provideWeatherService(retrofit: Retrofit): WeatherService = retrofit.create(WeatherService::class.java)
 
     }
 
