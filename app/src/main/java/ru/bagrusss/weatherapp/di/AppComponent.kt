@@ -8,6 +8,8 @@ import ru.bagrusss.arch.rx_mvi.di.api.core.CoreApi
 import ru.bagrusss.weatherapp.di.modules.AppModule
 import ru.bagrusss.weatherapp.di.modules.NetModule
 import ru.bagrusss.weatherapp.ui.flow.home.screens.cities.di.CitiesFragmentInjector
+import ru.bagrusss.weatherapp.ui.flow.home.screens.detailed_weather.di.DetailedWeatherFragmentInjector
+import ru.bagrusss.weatherapp.ui.flow.home.screens.map.di.MapFragmentInjector
 import ru.bagrusss.weatherapp.ui.flow.home.screens.settings.di.SettingsFragmentInjector
 import ru.bagrusss.weatherapp.ui.flow.home.screens.weather.di.WeatherFragmentInjector
 import javax.inject.Singleton
@@ -15,7 +17,9 @@ import javax.inject.Singleton
 interface AppApi :
     WeatherFragmentInjector,
     SettingsFragmentInjector,
-    CitiesFragmentInjector {
+    CitiesFragmentInjector,
+    MapFragmentInjector,
+    DetailedWeatherFragmentInjector {
 
 }
 
