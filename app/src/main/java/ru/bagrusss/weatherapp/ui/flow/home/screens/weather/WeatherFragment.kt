@@ -1,6 +1,9 @@
 package ru.bagrusss.weatherapp.ui.flow.home.screens.weather
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.widget.Toolbar
 import ru.bagrusss.arch.common.unsafeLazy
@@ -30,6 +33,22 @@ class WeatherFragment : MviFragment<UIState, IOData.EmptyInput, IOData.EmptyOutp
             toolbar = findViewById(R.id.toolbar)
 
             supportActivity.setSupportActionBar(toolbar)
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.weather_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        R.id.cities -> {
+            true
+        }
+        R.id.setting -> {
+            true
+        }
+        else -> {
+            super.onOptionsItemSelected(item)
         }
     }
 
