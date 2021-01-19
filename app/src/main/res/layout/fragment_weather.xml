@@ -11,7 +11,9 @@
         android:layout_height="?attr/actionBarSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:subtitle="Updated 20 mins ago"
+        tools:title="Moscow" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/weather_items_guide"
