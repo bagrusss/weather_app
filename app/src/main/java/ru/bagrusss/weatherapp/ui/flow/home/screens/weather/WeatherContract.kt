@@ -1,8 +1,9 @@
 package ru.bagrusss.weatherapp.ui.flow.home.screens.weather
 
+import ru.bagrusss.arch.rx_mvi.MviViewModel
 import ru.bagrusss.arch.rx_mvi.common.IOData
 import ru.bagrusss.arch.rx_mvi.common.ScreenStates
-import ru.bagrusss.arch.rx_mvi.MviViewModel
+import ru.bagrusss.weatherapp.domain.models.DayWeather
 
 interface WeatherContract {
 
@@ -13,7 +14,10 @@ interface WeatherContract {
     ) : ScreenStates.Domain
 
     data class UIState(
-        val value: Int = 0
+        @JvmField val temp: String,
+        @JvmField val tempDescription: String,
+        @JvmField val imageUrl: String,
+        @JvmField val items: List<DayWeather>
     ) : ScreenStates.UI
 
 }
