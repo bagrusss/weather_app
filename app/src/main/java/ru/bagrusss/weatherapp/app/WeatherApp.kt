@@ -8,6 +8,12 @@ import ru.bagrusss.weatherapp.di.AppProvider
 
 class WeatherApp: Application() {
 
+    override fun onCreate() {
+        super.onCreate()
+
+        initDi()
+    }
+
     private fun initDi() {
         CoreApiProvider.init {
             CoreArgs(
