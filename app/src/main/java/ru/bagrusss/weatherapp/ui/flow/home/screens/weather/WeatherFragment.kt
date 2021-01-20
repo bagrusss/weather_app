@@ -26,6 +26,12 @@ class WeatherFragment : MviFragment<UIState, IOData.EmptyInput, IOData.EmptyOutp
 
     private lateinit var toolbar: Toolbar
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setHasOptionsMenu(true)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

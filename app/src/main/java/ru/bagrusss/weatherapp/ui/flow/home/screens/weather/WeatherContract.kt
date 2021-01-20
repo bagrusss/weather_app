@@ -14,10 +14,10 @@ interface WeatherContract {
     ) : ScreenStates.Domain
 
     data class UIState(
-        @JvmField val temp: String,
-        @JvmField val tempDescription: String,
-        @JvmField val imageUrl: String,
-        @JvmField val items: List<DayWeather>
+        @JvmField val temp: String = "",//TODO
+        @JvmField val tempDescription: String = "",
+        @JvmField val imageUrl: String = "",
+        @JvmField val items: List<DayWeather> = listOf()
     ) : ScreenStates.UI
 
 }
