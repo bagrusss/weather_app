@@ -10,4 +10,24 @@
         android:name="ru.bagrusss.weatherapp.ui.flow.home.screens.weather.WeatherFragment"
         tools:layout="@layout/fragment_weather" />
 
+    <fragment
+        android:id="@+id/cities"
+        android:name="ru.bagrusss.weatherapp.ui.flow.home.screens.cities.CitiesFragment"
+        tools:layout="@layout/fragment_cities" />
+
+    <fragment
+        android:id="@+id/settings"
+        android:name="ru.bagrusss.weatherapp.ui.flow.home.screens.settings.SettingsFragment"
+        tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/map"
+        android:name="ru.bagrusss.weatherapp.ui.flow.home.screens.map.MapFragment"
+        tools:layout="@layout/fragment_map" />
+
+    <fragment
+        android:id="@+id/detailed_weather"
+        android:name="ru.bagrusss.weatherapp.ui.flow.home.screens.detailed_weather.DetailedWeatherFragment"
+        tools:layout="@layout/fragment_detailed_weather" />
+
 </navigation>
