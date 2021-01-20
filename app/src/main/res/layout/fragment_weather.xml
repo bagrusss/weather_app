@@ -15,42 +15,14 @@
         tools:subtitle="Updated 20 mins ago"
         tools:title="Moscow" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/weather_items_guide"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.7" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/weather_items"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/weather_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weather_items_guide"
-        app:layout_constraintVertical_bias="1.0"
-        tools:itemCount="5"
-        tools:listitem="@layout/item_weather_horizontal" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/current_weather_title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/weather_items"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="Snow -10/-17 C" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="1" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/current_weather_temp"
@@ -58,22 +30,213 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
         android:textSize="32sp"
-        app:layout_constraintBottom_toTopOf="@+id/current_weather_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weather_image"
         tools:text="-17 C" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/weather_image"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/current_weather_temp"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/current_weather_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="1" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/current_weather_temp"
+        tools:text="Snow -10/-17 C" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/weather_details_guide"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".5" />
+
+    <View
+        android:id="@+id/details_separator"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="4dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/current_weather_title" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/feels_like_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/details_separator"
+        tools:text="Feels like" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/feels_like_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/feels_like_label"
+        tools:text="17 C" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/pressure_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/feels_like_label"
+        app:layout_constraintStart_toEndOf="@+id/weather_details_guide"
+        app:layout_constraintTop_toTopOf="@+id/feels_like_label"
+        tools:text="Pressure" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/pressure_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/weather_details_guide"
+        app:layout_constraintTop_toBottomOf="@+id/feels_like_label"
+        tools:text="760 mm Hg" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/cloudiness_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/feels_like_value"
+        tools:text="Cloudiness" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/cloudiness_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cloudiness_label"
+        tools:text="50 %" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/wind_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toEndOf="@+id/weather_details_guide"
+        app:layout_constraintTop_toBottomOf="@+id/pressure_value"
+        tools:text="West wind" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/wind_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/weather_details_guide"
+        app:layout_constraintTop_toBottomOf="@+id/wind_label"
+        tools:text="3.1 m/s" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/visibility_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cloudiness_value"
+        tools:text="Visibility" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/visibility_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/visibility_label"
+        tools:text="5000 m" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/hum_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toEndOf="@+id/weather_details_guide"
+        app:layout_constraintTop_toBottomOf="@+id/wind_value"
+        tools:text="Hum" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/hum_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/weather_details_guide"
+        app:layout_constraintTop_toBottomOf="@+id/hum_label"
+        tools:text="78 %" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/sunrise_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/visibility_value"
+        tools:text="Sunrise" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/sunrise_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sunrise_label"
+        tools:text="5:36" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/sunset_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toEndOf="@+id/weather_details_guide"
+        app:layout_constraintTop_toBottomOf="@+id/hum_value"
+        tools:text="Sunset" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/sunset_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/weather_details_guide"
+        app:layout_constraintTop_toBottomOf="@+id/sunset_label"
+        tools:text="18:40" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/weather_items"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sunset_value"
+        tools:itemCount="5"
+        tools:listitem="@layout/item_weather_horizontal" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
